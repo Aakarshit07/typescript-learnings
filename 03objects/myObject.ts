@@ -38,19 +38,69 @@
 
 
 // Type aliases
-type User = {
-    name: string;
-    email: string;
-    isActive: boolean
-}
+// type User = {
+//     name: string;
+//     email: string;
+//     isActive: boolean
+// }
 
 
 // here our user is of TYPE User
-function createUser(user: User): User {
-    return { name: "", email: "", isActive: true
-    }
+// function createUser(user: User): User {
+//     return { name: "", email: "", isActive: true
+//     }
+// }
+
+// createUser({name: "", email: "", isActive: true});
+
+
+
+//? Readonly *********
+
+type User = {
+    readonly _id: string; // cannot change it
+    name: string;
+    email: string;
+    isActive: boolean;
+    creditcardDetails?: number //option as we marked it by * ? *
 }
 
-createUser({name: "", email: "", isActive: true});
+
+
+let myUser: User = {
+    _id: "12345",
+    name: "Aakarshit",
+    email: "a@a.com",
+    isActive: false,
+}
+
+//! Can't do this.
+//! myUser._id = "12345";
+
+
+type cardNumber = {
+    cardNumber: string
+}
+
+type cardDate = {
+    cardDate: string
+}
+
+ type cardDetails = cardNumber & cardDate & {
+    cvv: number;
+}
+
+
+
+
+//? Can do this
+myUser.email = "b@b.com";
+
+
+
+
+
+
+
 
 export {}
