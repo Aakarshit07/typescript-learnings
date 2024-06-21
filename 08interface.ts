@@ -13,7 +13,19 @@ interface User {
 
 }
 
-const soul: User = { 
+// reopening of interface
+interface User {
+    githubToken: string
+}
+
+//Inheritance
+interface Admin extends User {
+    role: "admin" | "ta" | "learner"
+}
+
+// form more interfaces refer Docs
+
+const soul: Admin = { 
     dbId: 431, 
     email: "a@a.com", 
     userId: 123, 
@@ -26,6 +38,9 @@ const soul: User = {
     // parameter we dont need to match the name.
     getCoupon: (name: "Soul", off: 10) => {
         return 453;
-    }
+    },
+    githubToken: "soul",
+    role : "admin"
 }
 soul.email = "s@so.com"
+
