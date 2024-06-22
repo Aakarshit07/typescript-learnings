@@ -23,12 +23,39 @@
 /*Professional way*/
 // 11Private and public property
 
+// Added 12 getter and setter
 class User {
+
+    private _courseCount = 1;
+
     readonly city: string = "Delhi"
     constructor(
         public email: string, 
         public name: string,
         private userId: string
-        ){   
+        ){
+        this.email = email   
+        this.name = name   
+        this.userId = userId   
+    }
+
+    get getAppleEmail(): string {
+        return `apple${this.email}`
+    }
+
+    get courseCount(): number {
+        return this._courseCount
+    }
+
+    // setter doesnt have return type 
+    set courseCount(courseNum) {
+        if(courseNum <= 1) {
+           throw new Error("Course count should be greater than 1")
+        }
+        this._courseCount = courseNum
+    } 
+
+    private deleteToken() {
+        console.log("Token deleted");
     }
 }
