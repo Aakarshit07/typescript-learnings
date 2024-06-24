@@ -25,8 +25,12 @@
 
 // Added 12 getter and setter
 class User {
+    // to it will only be accessible inside the class as well as only the classes that inherits it
+    protected _courseCount = 1;
 
-    private _courseCount = 1;
+    private deleteToken() {
+        console.log("Token deleted");
+    }
 
     readonly city: string = "Delhi"
     constructor(
@@ -54,8 +58,13 @@ class User {
         }
         this._courseCount = courseNum
     } 
+}
 
-    private deleteToken() {
-        console.log("Token deleted");
+class SubUser extends User {
+    isFamily: boolean = true
+    changeCourseCount() {
+        this._courseCount = 4;
     }
 }
+
+const soul = new User("A@a.com", "soul", "123")
