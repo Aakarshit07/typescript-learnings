@@ -15,7 +15,7 @@ abstract class TakePhoto {
 // whatever the class is abstract it doesn't allow to create Object from it
 // abstract class is just an blueprint of the class
 // any class that extends the Abstract class, that class can have instance of it
-class Instagram extends TakePhoto {
+class InstagramMedia extends TakePhoto {
     constructor(
         public cameraMode: string,
         public filter: string,
@@ -28,6 +28,6 @@ class Instagram extends TakePhoto {
         console.log("Sepia");
     }
 }
-const sl = new Instagram("hello", "Hello", 8);
+const sl = new InstagramMedia("hello", "Hello", 8);
 
 sl.getReelTime()
