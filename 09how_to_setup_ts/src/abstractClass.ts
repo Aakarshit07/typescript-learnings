@@ -1,4 +1,4 @@
-abstract class TakePhoto {
+abstract class TakePhotos {
     constructor(
         public cameraMode:  string, 
         public filter: string,
@@ -15,7 +15,7 @@ abstract class TakePhoto {
 // whatever the class is abstract it doesn't allow to create Object from it
 // abstract class is just an blueprint of the class
 // any class that extends the Abstract class, that class can have instance of it
-class InstagramMedia extends TakePhoto {
+class InstagramMedia extends TakePhotos {
     constructor(
         public cameraMode: string,
         public filter: string,

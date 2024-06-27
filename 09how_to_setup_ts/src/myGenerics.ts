@@ -62,10 +62,47 @@ const getMoreSearchProducts = <T>(products: T[]): T => {
     // do some database Operation
     const myIndex = 4;
     return products[myIndex];
-
 }
 
 // Here i we create normal arrow functions
 const getUserId = (products: number): number => {
     return products;
 }   
+
+interface Database {
+    connection: string,
+    username:string,
+    password: string
+}
+
+function anotherFunction<T, U extends Database>(valOne:T, valTwo:U):object {
+    return {
+        valOne,
+        valTwo
+    }
+}
+
+// anotherFunction(3, {connection: "", username:"", password:""})
+
+
+interface Quiz {
+    name: string,
+    type: string
+}
+
+interface Course {
+    name: string,
+    author: string,
+    subject: string
+}
+
+// it is a generic Class 
+class Sellable<T> {
+    public cart: T[] = []
+    
+    addToCart(products: T) {
+        this.cart.push(products)
+    }
+
+}
+
