@@ -82,4 +82,59 @@ function getFood(pet: Fish | Bird) {
     pet
     return "bird food"
   }
+} 
+
+
+
+// Discriminated Unions
+// only there to check ki interface type vo hai jo hame chaiye ya koi aur
+// like a property finder.
+// ki internface circle hai to uske ander kind circle kind property hai.
+// agar jo hame chaiye vo hi kind hai to ham usko use krke kaam maine krsakte hai.
+
+
+interface Circle {
+  kind: "circle";
+  radius: number;
+}
+
+interface Square {
+  kind: "square";
+  side: number;
+}
+
+interface Rectangle {
+  kind: "rectangle";
+  length: number;
+  width: number;
+}
+
+type Shape = Circle | Square | Rectangle;
+
+function getTrueShape(shape: Shape) {
+  if(shape.kind === "circle") {
+    return Math.PI * shape.radius ** 2;
+  }
+  //return shape.side * shape.side;
+}
+
+
+
+// Here we using exaustive check 
+function getArea(shape: Shape) {
+  switch(shape.kind) {
+    case "circle":
+      return Math.PI * shape.radius ** 2;
+    
+    case "square":
+      return shape.side * shape.side; 
+    case "rectangle":
+      return shape.length * shape.width
+
+
+    // Will never execute as it just work as to show that you need case if any new case/shape is provided 
+    default:
+      const _defaultforshape: never = shape
+      return _defaultforshape  
+  }  
 }
